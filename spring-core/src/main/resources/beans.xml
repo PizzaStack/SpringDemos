@@ -5,14 +5,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean name="artist" class="com.revature.beans.Artist">
-		<property name="artistid" value="1"></property>
-		<property name="name" value="Bon Jovi"></property>
+	<bean name="artistrepository" class="com.revature.beans.ArtistRepository">
+		<property name="url" value="DatabaseUrl"></property>
+		<property name="username" value="chinook"></property>
+		<property name="password" value="p4ssw0rd"></property>
 	</bean>
 
-	<bean name="album" class="com.revature.beans.Album">
-		<property name="albumid" value="1"></property>
-		<property name="title" value="My Way"></property>
-		<property name="artistid" ref="artist"></property>
+	<bean name="artistservice" class="com.revature.beans.ArtistService">
+		<property name="dao" ref="artistrepository"></property>
 	</bean>
 </beans>
