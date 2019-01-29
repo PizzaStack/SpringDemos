@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.revature.dao.ArtistDao;
 import com.revature.entity.Artist;
@@ -42,8 +44,8 @@ public class ArtistController {
 		return a;
 	}
 	
-	@GetMapping("/artists/{name}")
-	public Artist findByName(@PathVariable("name") String name) {
+	@GetMapping("/artists/search")
+	public Artist findByName(@RequestParam ("name") String name) {
 		return dao.findByName(name);
 	}
 	
@@ -73,8 +75,8 @@ public class ArtistController {
 		throw new IOException();
 	}
 	
-//	@GetMapping("/artists/{id}")
-//	public Artist getById(@PathVariable("id") Integer id) {
-//		return dao.findAllById(ids);
-//	}
+	@GetMapping("/artists/{id}")
+	public Optional<Artist> getById(@PathVariable("id") Integer id) {
+		return dao.findById(id);
+	}
 }
