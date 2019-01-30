@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: p4ssw0rd
-    url: jdbc:postgresql://uta-demodb.cvoui7q38caj.us-east-2.rds.amazonaws.com:5432/utademodb
-    username: utademodb
+    password: 
+    url: 
+    username: 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
